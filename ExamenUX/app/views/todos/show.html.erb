@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+	<strong>Description :</strong>
+	<%= @todo.description %>
+</p>
+<p>
+	<strong>Category Name:</strong>
+	<%= @todo.category.name %>
+</p>
+<p>
+	<strong>Level:</strong>
+	<%= @todo.level %>
+</p>
+
+<%= link_to 'Edit', edit_todo_path(@todo) %> |
+<%= link_to 'Back', category_path %>

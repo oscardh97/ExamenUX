@@ -1,0 +1,48 @@
+<p id="notice"><%= notice %></p>
+
+<% if user_signed_in? %>
+  <h1>Categories</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th colspan="3">Todos</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @categories.each do |category| %>
+      <tr>
+        <td>
+          <%= link_to category do %>
+            <%= category.name %>
+          <% end %>
+          <br>
+          <%= link_to '(Delete)', category, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+
+        <td>
+          <ul>
+            <% category.todos.each do |todo| %>
+            <!-- <tr><strong>Category Name</strong><%= todo.category.name %></tr> -->
+            <li>
+              <strong>Description: </strong><%= todo.description %><br>
+              <strong>Level: </strong><%= todo.level %>
+            </li>
+            <hr>
+            <% end %>
+          </ul>
+          
+        </td>
+
+      </tr>
+      <hr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= link_to 'New Category', new_category_path %>
+<% end %>

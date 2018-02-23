@@ -1,0 +1,26 @@
+<div class="row">
+	<div class="col-md-7 col-md-offset-2">
+		<h4>New Todos</h4>
+
+		<%= bootstrap_form_for @todo do |f| %>
+
+		<div class="field">
+			<%= f.select :category_id,
+			options_from_collection_for_select(@categories, "id", "name", :todo_category_id)
+			%>
+		</div>
+
+		<div class="field">
+			<%= f.text_field :description, class: "form-control" %>
+		</div>
+
+		<div class="field">
+			<%= f.number_field :level, id: :todo_level %>
+		</div>
+
+		<div class="actions">
+			<%= f.submit %>
+		</div>
+		<% end %>
+	</div>
+</div>

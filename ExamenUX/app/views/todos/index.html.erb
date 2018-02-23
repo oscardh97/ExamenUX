@@ -1,0 +1,19 @@
+<div class="row">
+	<div class="col-md-7 col-md-offset-2">
+		<h2>Todos</h2>
+		<% @todos.each do | todo | %>
+		<p>
+			Description: 
+			<%= link_to todo do %>
+				<%= todo.description %>
+			<% end %>
+          <%= link_to '(Delete)', todo, method: :delete, data: { confirm: 'Are you sure?' } %>
+		<p>Category: <%= todo.category.name %></p>
+		<p>Level: <%= todo.level %></p>
+		<hr>
+		<% end %>
+		<%= link_to 'New Todo', new_todo_path %>
+	</div>
+
+
+</div>
